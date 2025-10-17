@@ -514,7 +514,7 @@ function EditProductForm({ product, onCancel, onSave }) {
             />
             Single
           </label>
-          <label className="flex items-center gap-2">
+          {/* <label className="flex items-center gap-2">
             <input
               type="radio"
               name="type"
@@ -523,7 +523,7 @@ function EditProductForm({ product, onCancel, onSave }) {
               onChange={() => setType("collection")}
             />
             Collection
-          </label>
+          </label> */}
         </div>
       </div>
 

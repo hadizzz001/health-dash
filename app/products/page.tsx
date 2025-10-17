@@ -288,7 +288,7 @@ export default function AddProduct() {
             />
             <span>1 Item</span>
           </label>
-          <label className="flex items-center space-x-2">
+          {/* <label className="flex items-center space-x-2">
             <input
               type="radio"
               value="collection"
@@ -296,7 +296,7 @@ export default function AddProduct() {
               onChange={() => setProductType('collection')}
             />
             <span>Collection</span>
-          </label>
+          </label> */}
         </div>
       </div>
 
