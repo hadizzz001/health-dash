@@ -381,7 +381,7 @@ function EditProductForm({ product, onCancel, onSave }) {
       discount: Number(discount).toFixed(2),
       img,
       category: selectedCategory,
-      points: String(points),
+      // points: String(points),
       type,
       ...(type === 'single' && { stock: stock }),
       ...(type === 'collection' && {
@@ -502,7 +502,7 @@ function EditProductForm({ product, onCancel, onSave }) {
       </div>
 
 
-<div className="mt-4">
+{/* <div className="mt-4">
   <label className="text-sm font-bold">Points</label>
   <input
     type="number"
@@ -510,7 +510,7 @@ function EditProductForm({ product, onCancel, onSave }) {
     onChange={(e) => setPoints(e.target.value)}
     className="w-full border p-2 mb-2"
   />
-</div>
+</div> */}
 
 
 

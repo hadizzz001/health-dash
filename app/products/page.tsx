@@ -131,7 +131,7 @@ export default function AddProduct() {
       img,
       category: selectedCategory, 
       type: productType,
-      points: String(points),
+      // points: String(points),
       ...(productType === 'single' && { stock }),
       ...(productType === 'collection' && {
         color: selectedColors.map(color => {
@@ -271,7 +271,7 @@ export default function AddProduct() {
 />
 
 
-<input
+{/* <input
   type="number"
   placeholder="Points"
   value={points}
@@ -280,7 +280,7 @@ export default function AddProduct() {
 />
 
 
-
+ */}
 
 
 

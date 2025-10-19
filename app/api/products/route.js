@@ -16,7 +16,6 @@ export async function POST(req) {
       arrival,
       color,
       type,
-      points,
  
     } = body;
 
@@ -36,7 +35,6 @@ export async function POST(req) {
         arrival,
         color,
         type,
-        points,
  
 
       },
