@@ -578,7 +578,7 @@ const calculateOrderTotal = async (orders) => {
                     </div>
                     <div className="flex justify-between mb-2">
                       <span className="font-semibold">Total Amount:</span>
-                      <span className="font-semibold">{totalAmount !== null ? `$${totalAmount}` : "..."}</span>
+                      <span className="font-semibold">${allTemp1.total}</span>
                     </div>
 
                     <div className="mt-4">

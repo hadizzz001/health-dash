@@ -396,7 +396,7 @@ const calculateOrderTotal = async (order) => {
                   <img src={post.userInfo[0].img[0]} width={40} height={40} />
                 </td>
                 <td>{post.cartItems.fname}</td>
-                <td>{totals[post.oid] ? `$${totals[post.oid]}` : "..."}</td>
+                <td>{post.total}</td>
                 <td>
                   {post.userInfo?.reduce(
                     (acc, item) =>
