@@ -20,6 +20,7 @@ export default function AddProduct() {
   const [colorQuantities, setColorQuantities] = useState({});
   const [colorSizes, setColorSizes] = useState({}); 
   const [discount, setDiscount] = useState('');
+  const [points, setPoints] = useState('');
 
 
 
@@ -130,6 +131,7 @@ export default function AddProduct() {
       img,
       category: selectedCategory, 
       type: productType,
+      points: String(points),
       ...(productType === 'single' && { stock }),
       ...(productType === 'collection' && {
         color: selectedColors.map(color => {
@@ -265,6 +267,15 @@ export default function AddProduct() {
   placeholder="Discounted"
   value={discount}
   onChange={(e) => setDiscount(e.target.value)}
+  className="w-full border p-2 mb-4"
+/>
+
+
+<input
+  type="number"
+  placeholder="Points"
+  value={points}
+  onChange={(e) => setPoints(e.target.value)}
   className="w-full border p-2 mb-4"
 />
 

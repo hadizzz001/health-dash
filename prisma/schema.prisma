@@ -19,6 +19,7 @@ model Product {
   color        Json?
   type         String
   arrival      String   @default("no")
+  points      String?
 }
 
 model Category {

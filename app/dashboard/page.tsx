@@ -334,6 +334,8 @@ function EditProductForm({ product, onCancel, onSave }) {
   const [price, setPrice] = useState(product.price);
   const [discount, setDiscount] = useState(product.discount);
   const [selectedCategory, setSelectedCategory] = useState(product.category || ""); 
+  const [points, setPoints] = useState(product.points || "");
+
 
  
 
@@ -379,6 +381,7 @@ function EditProductForm({ product, onCancel, onSave }) {
       discount: Number(discount).toFixed(2),
       img,
       category: selectedCategory,
+      points: String(points),
       type,
       ...(type === 'single' && { stock: stock }),
       ...(type === 'collection' && {
@@ -497,6 +500,17 @@ function EditProductForm({ product, onCancel, onSave }) {
         <input type="number" value={discount} onChange={(e) => setDiscount(e.target.value)} className="w-full border p-2 mb-2" />
 
       </div>
+
+
+<div className="mt-4">
+  <label className="text-sm font-bold">Points</label>
+  <input
+    type="number"
+    value={points}
+    onChange={(e) => setPoints(e.target.value)}
+    className="w-full border p-2 mb-2"
+  />
+</div>
 
 
 
