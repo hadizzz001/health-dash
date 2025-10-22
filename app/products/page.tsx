@@ -21,6 +21,7 @@ export default function AddProduct() {
   const [colorSizes, setColorSizes] = useState({}); 
   const [discount, setDiscount] = useState('');
   const [points, setPoints] = useState('');
+const [noPrice, setNoPrice] = useState(false);
 
 
 
@@ -126,7 +127,7 @@ export default function AddProduct() {
     const payload = {
       title,
       description,
-      price: Number(price).toFixed(2),
+      price: noPrice ? null : Number(price).toFixed(2),
       discount: discount ? Number(discount).toFixed(2) : null,
       img,
       category: selectedCategory, 
@@ -249,26 +250,40 @@ export default function AddProduct() {
 
 
 
-      <input
-        type="number"
-        step="0.01"
-        placeholder="Price"
-        value={price}
-        onChange={(e) => setPrice(e.target.value)}
-        className="w-full border p-2 mb-4"
-        required
-      />
+{/* No Price Checkbox */}
+<div className="flex items-center gap-2 mb-4">
+  <input
+    type="checkbox"
+    id="noPrice"
+    checked={noPrice}
+    onChange={(e) => setNoPrice(e.target.checked)}
+  />
+  <label htmlFor="noPrice" className="text-sm font-medium">No Discount</label>
+</div>
 
+{/* Price Input (hidden when noPrice is true) */}
+{!noPrice && (
+  <input
+    type="number"
+    step="0.01"
+    placeholder="Price"
+    value={price}
+    onChange={(e) => setPrice(e.target.value)}
+    className="w-full border p-2 mb-4"
+    required
+  />
+)}
 
-      
+{/* Discount Input (always visible) */}
 <input
   type="number"
   step="0.01"
-  placeholder="Discounted"
+  placeholder="Final Price"
   value={discount}
   onChange={(e) => setDiscount(e.target.value)}
   className="w-full border p-2 mb-4"
 />
+
 
 
 {/* <input

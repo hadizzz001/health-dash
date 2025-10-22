@@ -335,6 +335,7 @@ function EditProductForm({ product, onCancel, onSave }) {
   const [discount, setDiscount] = useState(product.discount);
   const [selectedCategory, setSelectedCategory] = useState(product.category || ""); 
   const [points, setPoints] = useState(product.points || "");
+const [noPrice, setNoPrice] = useState(product.price === null || product.price === 0);
 
 
  
@@ -377,7 +378,7 @@ function EditProductForm({ product, onCancel, onSave }) {
       ...product,
       title,
       description,
-      price: Number(price).toFixed(2),
+     price: noPrice ? null : Number(price).toFixed(2),
       discount: Number(discount).toFixed(2),
       img,
       category: selectedCategory,
@@ -490,16 +491,43 @@ function EditProductForm({ product, onCancel, onSave }) {
 
 
 
-      <div className="mt-4">
-        <label className="text-sm font-bold">Price</label>
-        <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} className="w-full border p-2 mb-2" />
+{/* No Price Checkbox */}
+<div className="flex items-center gap-2 mb-4">
+  <input
+    type="checkbox"
+    id="noPrice"
+    checked={noPrice}
+    onChange={(e) => setNoPrice(e.target.checked)}
+  />
+  <label htmlFor="noPrice" className="text-sm font-medium">No Price</label>
+</div>
 
-      </div>
-      <div className="mt-4">
-        <label className="text-sm font-bold">Discount</label>
-        <input type="number" value={discount} onChange={(e) => setDiscount(e.target.value)} className="w-full border p-2 mb-2" />
+{/* Price Input (hidden when noPrice is true) */}
+{!noPrice && (
+  <div className="mt-4">
+    <label className="text-sm font-bold">Price</label>
+    <input
+      type="number"
+      value={price}
+      onChange={(e) => setPrice(e.target.value)}
+      className="w-full border p-2 mb-2"
+      placeholder="Enter price"
+    />
+  </div>
+)}
 
-      </div>
+{/* Discount Input (always visible) */}
+<div className="mt-4">
+  <label className="text-sm font-bold">Discount</label>
+  <input
+    type="number"
+    value={discount}
+    onChange={(e) => setDiscount(e.target.value)}
+    className="w-full border p-2 mb-2"
+    placeholder="Enter discounted price"
+  />
+</div>
+
 
 
 {/* <div className="mt-4">
